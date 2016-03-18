@@ -51,13 +51,13 @@ DELETE    | 404 (Not Found) or 405 (Method NOt Allowed)                         
 
 ## Benchmark Results
     
-    [vagrant@gkrsteski php-reactor]$ loadtest http://10.0.49.227:5501/articles/?id=10 -t 20 -c 20 --rps 1000
+    [vagrant@gkrsteski php-reactor]$ loadtest http://10.0.49.227:5501/articles/10 -t 20 -c 20 --rps 1000
     [Wed Feb 10 2016 12:24:47 GMT+0100 (CET)] INFO Requests: 0, requests per second: 0, mean latency: 0 ms
     [Wed Feb 10 2016 12:24:52 GMT+0100 (CET)] INFO Requests: 4516, requests per second: 903, mean latency: 10 ms
     [Wed Feb 10 2016 12:24:57 GMT+0100 (CET)] INFO Requests: 9515, requests per second: 1000, mean latency: 0 ms
     [Wed Feb 10 2016 12:25:02 GMT+0100 (CET)] INFO Requests: 14515, requests per second: 1000, mean latency: 10 ms
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO
-    [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO Target URL:          http://10.0.49.227:5501/articles/?id=10
+    [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO Target URL:          http://10.0.49.227:5501/articles/10
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO Max time (s):        20
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO Concurrency level:   20
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO Agent:               none
@@ -76,6 +76,17 @@ DELETE    | 404 (Not Found) or 405 (Method NOt Allowed)                         
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO   99%      30 ms
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO  100%      36 ms (longest request)
 
+## Or run with Docker
+
+Build a Docker image for your application by running:
+    
+    docker build -t="reactphp-pimf-api" .
+    
+Finally, run your application as a Docker container by running:
+
+    docker run -d -P reactphp-pimf-api
+    
+    
 
 ## Run tests
 Install a Composer to your project's root
@@ -91,20 +102,3 @@ Execute tests
     php vendor/codeception/codeception/codecept run --steps
     // or if want to see fancy HTML report page
     php vendor/codeception/codeception/codecept run --html
-    
-
-## TODOS
-- add error handling for STDOUT and fatal errors
-- add configuration to env variable
-
-## Can run with Docker
-
-Build a Docker image for your application by running:
-    
-    docker build -t="reactphp-pimf-api" .
-    
-Finally, run your application as a Docker container by running:
-
-    docker run -d -P reactphp-pimf-api
-    
-    
