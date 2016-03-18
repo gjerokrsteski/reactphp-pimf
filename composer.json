@@ -1,0 +1,6 @@
+{
+  "require": {
+    "react/react": "0.4.2",
+    "gjerokrsteski/pimf": "dev-master"
+  }
+}
