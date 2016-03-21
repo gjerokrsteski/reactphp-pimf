@@ -1,0 +1,13 @@
+I WANT TO CREATE A ARTICLE VIA API AND FIND A ARTICLE VIA API
+
+I have http header 'Content-Type'," 'application/x-www-form-urlencoded'
+I send post '/articles'," ['title' => 'test title'," 'content' => 'test content']"
+I see response code is "201"
+I see response is json ""
+I see response contains 'newId'
+I see response matches json type "['newId' => 'integer']"
+I grab response ")"
+I send get '/articles/'.$body->newId"
+I see response code is "200"
+I see response is json ""
+

@@ -1,0 +1,5 @@
+I WANT TO FIND ARTICLE VIA API WHICH USING BAD PARAM NAME
+
+I send get '/articles'," ['title' => 1]"
+I see response code is "400"
+

@@ -1,0 +1,5 @@
+I WANT TO FIND ARTICLE VIA API WHICH IS NOT AT THE SYSTEM
+
+I send get '/articles/9999999'
+I see response code is "404"
+

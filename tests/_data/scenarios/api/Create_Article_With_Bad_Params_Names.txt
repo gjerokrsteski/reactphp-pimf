@@ -1,0 +1,6 @@
+I WANT TO CREATE A ARTICLE VIA API USING NO EXPECTED PARAMETERS
+
+I have http header 'Content-Type'," 'application/x-www-form-urlencoded'
+I send post '/articles'," ['test' => 'test title'," 'test2' => 'test content']"
+I see response code is "400"
+

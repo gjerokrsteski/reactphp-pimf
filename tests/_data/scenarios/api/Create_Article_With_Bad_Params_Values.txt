@@ -1,0 +1,6 @@
+I WANT TO CREATE A ARTICLE VIA API USING BAD PARAMETER VALUES
+
+I have http header 'Content-Type'," 'application/x-www-form-urlencoded'
+I send post '/articles'," ['title' => ''," 'content' => ['test'=>'content']]"
+I see response code is "400"
+

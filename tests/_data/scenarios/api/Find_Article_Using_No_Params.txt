@@ -1,0 +1,5 @@
+I WANT TO FIND ARTICLE VIA API WHICH USING NO PARAMS
+
+I send get '/articles'
+I see response code is "400"
+
