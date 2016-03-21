@@ -49,8 +49,6 @@ final class UpdateExistingArticle
             parse_str($requestBody, $requestData);
             $requestData = new Param($requestData + $route->getParams());
 
-            var_dump($requestData->getAll());
-
             $id = $requestData->get('id');
             $title = $requestData->get('title');
             $content = $requestData->get('content');
@@ -71,12 +69,7 @@ final class UpdateExistingArticle
 
             $article = new Article($title, $content);
             $article = $this->em->article->reflect($article, (int)$id);
-
-            var_dump($article);
-
             $updated = $this->em->article->update($article);
-
-            var_dump($updated);
 
             if ($updated === true) {
                 $this->response->writeHead(200);

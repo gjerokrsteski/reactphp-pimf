@@ -46,8 +46,6 @@ final class DeleteExistingArticle
         parse_str($requestBody, $requestData);
         $requestData = new Param($requestData + $route->getParams());
 
-        var_dump($requestData);
-
         $id = $requestData->get('id');
 
         if (!$id) {

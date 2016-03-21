@@ -118,12 +118,6 @@ class Article extends Base
         $sth->bindValue(':id', $id, \PDO::PARAM_INT);
         $sth->execute();
 
-        var_dump(
-            $sth->queryString,
-            $sth->errorInfo(),
-            $sth->errorCode()
-        );
-
         if ($sth->rowCount() == 0) {
             return false;
         }

@@ -48,9 +48,6 @@ final class Listener
 
         // handle main route
         if($route->init()->matches() === false){
-
-            var_dump('main route did not match');
-
             $this->response->writeHead(500);
             return $this->response->end();
         }
