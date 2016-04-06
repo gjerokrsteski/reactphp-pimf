@@ -1,7 +1,7 @@
 ## Base image
 FROM alpine:latest
 
-## Copy modified PHP files nto container
+## Copy modified PHP files into container
 COPY . /php-react
 
 ## Set working directory
@@ -16,7 +16,7 @@ RUN apk apk update && \
     apk del tzdata && \
     rm -rf /var/cache/apk/*
 
-## Install testing framework
+## Install ReactPHP and PIMF micro frameworks
 RUN curl -s http://getcomposer.org/installer | php
 RUN php composer.phar update
 RUN php composer.phar install
