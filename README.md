@@ -5,6 +5,10 @@ ReactPHP is one of the most promising libraries. It brings the powerful concept 
 (Hi NodeJS) to PHP. With this technology in mind we are able to write our own HTTP stack in PHP and have control back 
 over the memory without destroying it at the end of each request. 
 
+*ReactPHP* is responsible for establishing the TCP-Socket, transferring the raw HTTP Requests and sending the HTTP Responses back.
+
+*PIMF micro framework* is responsible for managing the HTTP Resources using the HTTP request methods, validation and handling the persistence interactions.
+
 ## Installation
 - clone this repository
 - Install a Composer to your project's root https://getcomposer.org
