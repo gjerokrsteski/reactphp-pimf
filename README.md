@@ -10,8 +10,20 @@ over the memory without destroying it at the end of each request.
 - Install a Composer to your project's root https://getcomposer.org
 - run: composer install
 
-## Run the awesome PHP Nuclear Reactor
-- php run-server.php
+## Run using PHP
+
+    php run-server.php
+
+## Or run with Docker
+
+Build a Docker image for your application by running:
+    
+    docker build -t="reactphp-pimf-api" .
+    
+Finally, run your application as a Docker container by running:
+
+    docker run -d -P reactphp-pimf-api
+   
 
 ## Try out the RESTful API
 - http://{reactive.hosts}:{reactive.port}/articles/
@@ -66,17 +78,6 @@ DELETE    | 404 (Not Found) or 405 (Method NOt Allowed)                         
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO   99%      30 ms
     [Wed Feb 10 2016 12:25:07 GMT+0100 (CET)] INFO  100%      36 ms (longest request)
 
-## Or run with Docker
-
-Build a Docker image for your application by running:
-    
-    docker build -t="reactphp-pimf-api" .
-    
-Finally, run your application as a Docker container by running:
-
-    docker run -d -P reactphp-pimf-api
-    
-    
 
 ## Run tests
 Install a Composer to your project's root
