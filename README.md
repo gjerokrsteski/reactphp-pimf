@@ -10,10 +10,6 @@ over the memory without destroying it at the end of each request.
 - Install a Composer to your project's root https://getcomposer.org
 - run: composer install
 
-## Configuration
-- navigate to /app/config.app.php
-- set the host/ip and port for the reactive server
-
 ## Run the awesome PHP Nuclear Reactor
 - php run-server.php
 
