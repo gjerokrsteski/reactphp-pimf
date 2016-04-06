@@ -1,0 +1,9 @@
+node_modules
+.idea
+build
+docs
+dist
+coverage
+db
+apiState.json
+tests
