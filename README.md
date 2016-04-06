@@ -5,12 +5,6 @@ ReactPHP is one of the most promising libraries. It brings the powerful concept 
 (Hi NodeJS) to PHP. With this technology in mind we are able to write our own HTTP stack in PHP and have control back 
 over the memory without destroying it at the end of each request. 
 
-## System Requirements
-This bundle has system requirements to PHP's extensions: "PDO" and "pdo_sqlite". The extentions
-have to be compiled within your PHP. Please check by executing **php -m** on you command interface - and
-take a look for them. If they are there than everything will be fine - otherwise please navigate
-to http://www.php.net/manual/pdo.setup.php and find out how to recompile them to your PHP version.
-
 ## Installation
 - clone this repository
 - Install a Composer to your project's root https://getcomposer.org
