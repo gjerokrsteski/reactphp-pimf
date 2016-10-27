@@ -60,7 +60,7 @@ return [
         'routeable'          => true,
 
         // URL used to access your application without a trailing slash.
-        'url'                => 'http://10.0.49.227:666',
+        'url'                => 'http://127.0.0.1:1337',
 
         // if using mod_rewrite to get cleaner URLs let it empty otherwise set index.php
         'index'              => '',
@@ -76,7 +76,7 @@ return [
     */
     'reactive'    => [
         'host' => '0.0.0.0',
-        'port' => 666,
+        'port' => 1337,
     ],
 
     /*

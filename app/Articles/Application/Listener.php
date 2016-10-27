@@ -4,11 +4,9 @@ namespace Articles\Application;
 use Articles\Service\WriteAllowedRequestMethods;
 use Pimf\EntityManager;
 use Pimf\Route;
-use Pimf\Util\Character;
-use \Pimf\Uri;
+use Pimf\Uri;
 use React\Http\Response as ReactiveResponse;
 use React\Http\Request as ReactiveRequest;
-
 use Articles\Service\FindExistingArticle;
 use Articles\Service\CreateNewArticle;
 use Articles\Service\DeleteExistingArticle;

@@ -1,5 +1,5 @@
 ## Base image
-FROM alpine:latest
+FROM alpine:3.3
 
 ## Copy modified PHP files into container
 COPY . /php-react
@@ -7,13 +7,29 @@ COPY . /php-react
 ## Set working directory
 WORKDIR /php-react
 
-## Install PHP
-RUN apk apk update && \
+# get packages
+RUN apk update && \
     apk upgrade && \
-    apk add --update tzdata && \
-    apk add git && \
-    apk add --update php-common php-json php-curl php-pdo php-pdo_sqlite php-phar php-cli php-openssl php-ctype php-mcrypt && \
-    apk del tzdata && \
+    apk add tzdata && \
+    apk add php-fpm && \
+    apk add php-common && \
+    apk add php-bcmath && \
+    apk add php-ctype && \
+    apk add php-curl && \
+    apk add php-dom && \
+    apk add php-json && \
+    apk add php-openssl && \
+    apk add php-pdo && \
+    apk add php-pdo_sqlite && \
+    apk add php-cli && \
+    apk add php-mcrypt && \
+    apk add php-phar && \
+	apk add php-intl && \
+	apk add openssh && \
+	apk add openssl && \
+	apk add supervisor && \
+	apk add git && \
+	apk del tzdata && \
     rm -rf /var/cache/apk/*
 
 ## Install ReactPHP and PIMF micro frameworks
@@ -23,13 +39,16 @@ RUN php composer.phar install
 RUN php composer.phar dump-autoload --optimize
 
 ## Create SQLite table
+RUN chmod +x create-table.php
 RUN php create-table.php
 
 ## Expose port
-EXPOSE 666
+EXPOSE 1337
 
 ## Set a volume for SQLite database
 VOLUME /php-react/app/Articles/_database
+
+RUN chmod +x run-server.php
 
 ## Run the reactive API server
 ENTRYPOINT php run-server.php

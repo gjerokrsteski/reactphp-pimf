@@ -26,7 +26,7 @@ Build a Docker image for your application by running:
     
 Finally, run your application as a Docker container by running:
 
-    docker run -d -P reactphp-pimf-api
+    docker run -d -p 1337:1337 reactphp-pimf-api
    
 
 ## Try out the RESTful API
