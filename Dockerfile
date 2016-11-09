@@ -24,12 +24,13 @@ RUN apk update && \
     apk add php-cli && \
     apk add php-mcrypt && \
     apk add php-phar && \
-	apk add php-intl && \
-	apk add openssh && \
-	apk add openssl && \
-	apk add supervisor && \
-	apk add git && \
-	apk del tzdata && \
+    apk add php-pcntl && \
+    apk add php-intl && \
+    apk add openssh && \
+    apk add openssl && \
+    apk add supervisor && \
+    apk add git && \
+    apk del tzdata && \
     rm -rf /var/cache/apk/*
 
 ## Install ReactPHP and PIMF micro frameworks

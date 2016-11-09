@@ -11,6 +11,6 @@ $I->seeResponseMatchesJsonType(['newId' => 'integer']);
 
 $body = json_decode($I->grabResponse());
 
-$I->sendDELETE('/article/'.$body->newId);
+$I->sendDELETE('/articles/'.$body->newId);
 $I->seeResponseCodeIs(200);
 $I->canSeeResponseEquals('');
