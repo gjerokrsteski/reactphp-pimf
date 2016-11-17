@@ -11,8 +11,7 @@ over the memory without destroying it at the end of each request.
 
 ## Installation
 - clone this repository
-- Install a Composer to your project's root https://getcomposer.org
-- run: composer install
+- run: ./init-app.sh
 
 ## Run using PHP
 
