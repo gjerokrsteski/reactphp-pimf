@@ -38,7 +38,7 @@ Finally, run your application as a Docker container by running:
 HTTP Verb |  Entire Collection (e.g. /articles)                                          | Specific Item (e.g. /articles/{id})
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 GET       | 400 (Bad Request)                                                            | 200 (OK), single article.
-          |                                                                              | 404 (Not Found), if ID not found or invalid.
+          |                                                                              | 404 (Not Found), if ID not found or 400 (Bad Request) if invalid.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 PUT       | 405 (Method Not Allowed)                                                     | 200 (OK),
           | - unless you want to update/replace every resource in the entire collection. | 404 (Not Found) if ID not found or 400 (Bad Request) if invalid.
