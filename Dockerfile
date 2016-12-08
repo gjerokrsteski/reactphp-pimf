@@ -22,7 +22,6 @@ RUN apk update && \
     apk add php-pdo && \
     apk add php-pdo_sqlite && \
     apk add php-cli && \
-    apk add php-mcrypt && \
     apk add php-phar && \
     apk add php-pcntl && \
     apk add php-intl && \

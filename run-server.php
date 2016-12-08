@@ -7,7 +7,7 @@ Pimf\Config::load($config);
 $loop = React\EventLoop\Factory::create();
 
 $dnsResolver = new \React\Dns\Resolver\Factory();
-$dnsResolver->createCached(Pimf\Config::get('reactive.host', '0.0.0.0'), $loop);
+$dnsResolver->createCached('127.0.0.1', $loop);
 
 $socket = new React\Socket\Server($loop);
 $http = new React\Http\Server($socket);
@@ -23,6 +23,6 @@ $http->on('request',
 
 $socket->listen(Pimf\Config::get('reactive.port', 0), Pimf\Config::get('reactive.host', '0.0.0.0'));
 
-echo 'Listening on port: ' . $socket->getPort() . PHP_EOL;
+echo 'Listening on host '.Pimf\Config::get('reactive.host', '0.0.0.0').' and port: ' . $socket->getPort() . PHP_EOL;
 
 $loop->run();
