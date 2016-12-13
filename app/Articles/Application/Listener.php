@@ -5,6 +5,7 @@ use Articles\Service\WriteAllowedRequestMethods;
 use Pimf\EntityManager;
 use Pimf\Route;
 use Pimf\Uri;
+use Pimf\Util\Json;
 use React\Http\Response as ReactiveResponse;
 use React\Http\Request as ReactiveRequest;
 use Articles\Service\FindExistingArticle;
@@ -45,13 +46,19 @@ final class Listener
         $route = new Route('/articles(/:id)');
 
         // handle main route
-        if($route->init()->matches() === false){
-            $this->response->writeHead(500);
-            return $this->response->end();
+        if ($route->init()->matches() === false) {
+            $this->response->writeHead(406);
+            return $this->response->end(
+                Json::encode([
+                    'list api usage options' => [
+                        'url' => '/articles',
+                        'method' => 'OPTIONS',
+                    ],
+                ]));
         }
 
-        $routeTo = function($service){
-          return $service();
+        $routeTo = function ($service) {
+            return $service();
         };
 
         // handle API requested resources
