@@ -1,12 +1,10 @@
 sudo: required
 
-language: php
-
 services:
   - docker
 
 before_install:
-  - ./develop.sh
+  - develop.sh
 
 script:
-  - ./test.sh
+  - test.sh
