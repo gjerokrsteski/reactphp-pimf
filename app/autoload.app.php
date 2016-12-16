@@ -18,15 +18,14 @@ spl_autoload_register(
          * The mappings from class names to file paths.
          */
         static $mappings = [
-            'Articles\\Application\\Listener'               => '/Articles/Application/Listener.php',
-            'Articles\\DataMapper\\Article'                 => '/Articles/DataMapper/Article.php',
-            'Articles\\Model\\Article'                      => '/Articles/Model/Article.php',
-            'Articles\\Contract\\Invokable'                 => '/Articles/Contract/Invokable.php',
-            'Articles\\Service\\FindExistingArticle'         => '/Articles/Service/FindExistingArticle.php',
-            'Articles\\Service\\ListApiUsageOptions'        => '/Articles/Service/ListApiUsageOptions.php',
-            'Articles\\Service\\CreateNewArticle'           => '/Articles/Service/CreateNewArticle.php',
-            'Articles\\Service\\UpdateExistingArticle'      => '/Articles/Service/UpdateExistingArticle.php',
-            'Articles\\Service\\DeleteExistingArticle'       => '/Articles/Service/DeleteExistingArticle.php',
+            'Articles\\Application\\Listener' => '/Articles/Application/Listener.php',
+            'Articles\\DataMapper\\Article' => '/Articles/DataMapper/Article.php',
+            'Articles\\Model\\Article' => '/Articles/Model/Article.php',
+            'Articles\\Service\\FindExistingArticle' => '/Articles/Service/FindExistingArticle.php',
+            'Articles\\Service\\ListApiUsageOptions' => '/Articles/Service/ListApiUsageOptions.php',
+            'Articles\\Service\\CreateNewArticle' => '/Articles/Service/CreateNewArticle.php',
+            'Articles\\Service\\UpdateExistingArticle' => '/Articles/Service/UpdateExistingArticle.php',
+            'Articles\\Service\\DeleteExistingArticle' => '/Articles/Service/DeleteExistingArticle.php',
             'Articles\\Service\\WriteAllowedRequestMethods' => '/Articles/Service/WriteAllowedRequestMethods.php',
         ];
 

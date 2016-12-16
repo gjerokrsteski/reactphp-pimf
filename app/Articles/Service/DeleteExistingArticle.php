@@ -1,7 +1,6 @@
 <?php
 namespace Articles\Service;
 
-use Articles\Contract\Invokable;
 use Pimf\EntityManager;
 use Pimf\Param;
 use Pimf\Route;
@@ -9,7 +8,7 @@ use Pimf\Util\Validator;
 use React\Http\Response as ReactiveResponse;
 use React\Http\Request as ReactiveRequest;
 
-final class DeleteExistingArticle implements Invokable
+final class DeleteExistingArticle
 {
     /**
      * @var EntityManager

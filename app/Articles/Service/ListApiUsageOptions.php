@@ -1,11 +1,10 @@
 <?php
 namespace Articles\Service;
 
-use Articles\Contract\Invokable;
 use Pimf\Util\Json;
 use React\Http\Response as ReactiveResponse;
 
-final class ListApiUsageOptions implements Invokable
+final class ListApiUsageOptions
 {
     /**
      * @var ReactiveResponse

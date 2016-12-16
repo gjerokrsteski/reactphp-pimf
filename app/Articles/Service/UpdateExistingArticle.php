@@ -1,7 +1,6 @@
 <?php
 namespace Articles\Service;
 
-use Articles\Contract\Invokable;
 use Articles\Model\Article;
 use Pimf\EntityManager;
 use Pimf\Param;
@@ -10,7 +9,7 @@ use Pimf\Util\Validator;
 use React\Http\Response as ReactiveResponse;
 use React\Http\Request as ReactiveRequest;
 
-final class UpdateExistingArticle implements Invokable
+final class UpdateExistingArticle
 {
     /**
      * @var EntityManager

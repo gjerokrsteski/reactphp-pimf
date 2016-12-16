@@ -1,10 +1,9 @@
 <?php
 namespace Articles\Service;
 
-use Articles\Contract\Invokable;
 use React\Http\Response as ReactiveResponse;
 
-class WriteAllowedRequestMethods implements Invokable
+class WriteAllowedRequestMethods
 {
     /**
      * @var ReactiveResponse
