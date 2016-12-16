@@ -1,6 +1,8 @@
 sudo: required
-language: ruby
+language: bash
 services:
   - docker
 install: ./develop.sh
 script: ./test.sh
+notifications:
+  email: false
