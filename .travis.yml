@@ -1,0 +1,12 @@
+sudo: required
+
+language: php
+
+services:
+  - docker
+
+before_install:
+  - ./develop.sh
+
+script:
+  - ./test.sh
