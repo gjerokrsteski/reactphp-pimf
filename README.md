@@ -1,4 +1,4 @@
-# Welcome to PHP Nuclear Reactor
+# Welcome to PHP Nuclear Reactor [![Build Status](https://travis-ci.org/gjerokrsteski/reactphp-pimf.svg?branch=master)](https://travis-ci.org/gjerokrsteski/reactphp-pimf)
 This is an reactive RESTful API which uses ReactPHP and PIMF micro framework. 
 
 ReactPHP is one of the most promising libraries. It brings the powerful concept of event-driven, non-blocking I/O 
