@@ -2,7 +2,10 @@ sudo: required
 language: bash
 services:
   - docker
-install: ./develop.sh
-script: ./test.sh
+before_install:
+  - chmod +x develop.sh
+  - chmod +x test.sh
+install: sh ./develop.sh
+script: sh ./test.sh
 notifications:
   email: false
