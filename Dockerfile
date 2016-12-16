@@ -1,5 +1,5 @@
 ## Base image
-FROM alpine:3.3
+FROM alpine:edge
 
 ## Copy modified PHP files into container
 COPY . /php-react
@@ -7,30 +7,34 @@ COPY . /php-react
 ## Set working directory
 WORKDIR /php-react
 
-# get packages
-RUN apk update && \
-    apk upgrade && \
-    apk add tzdata && \
-    apk add php-fpm && \
-    apk add php-common && \
-    apk add php-bcmath && \
-    apk add php-ctype && \
-    apk add php-curl && \
-    apk add php-dom && \
-    apk add php-json && \
-    apk add php-openssl && \
-    apk add php-pdo && \
-    apk add php-pdo_sqlite && \
-    apk add php-cli && \
-    apk add php-phar && \
-    apk add php-pcntl && \
-    apk add php-intl && \
-    apk add openssh && \
-    apk add openssl && \
-    apk add supervisor && \
-    apk add git && \
-    apk del tzdata && \
+# Add PHP 7
+RUN apk add --update --no-cache curl bash && \
+    apk upgrade -U && \
+    apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/testing add \
+    php7 \
+    php7-pdo \
+    php7-pdo_sqlite \
+    php7-curl \
+    php7-json \
+    php7-fpm \
+    php7-phar \
+    php7-openssl \
+    php7-ctype \
+    php7-mbstring \
+    php7-phar \
+    php7-pcntl \
+    php7-intl \
+    php7-openssl
+
+# Sweep unused data from the image
+RUN apk del tzdata && \
     rm -rf /var/cache/apk/*
+
+# Small fixes du we use alpine:edge
+RUN ln -s /etc/php7 /etc/php && \
+    ln -s /usr/bin/php7 /usr/bin/php && \
+    ln -s /usr/sbin/php-fpm7 /usr/bin/php-fpm && \
+    ln -s /usr/lib/php7 /usr/lib/php
 
 ## Install ReactPHP and PIMF micro frameworks
 RUN curl -s http://getcomposer.org/installer | php
