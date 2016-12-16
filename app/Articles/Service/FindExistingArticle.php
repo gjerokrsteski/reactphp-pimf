@@ -1,6 +1,7 @@
 <?php
 namespace Articles\Service;
 
+use Articles\Contract\Invokable;
 use Pimf\EntityManager;
 use Pimf\Param;
 use Pimf\Route;
@@ -9,12 +10,12 @@ use Pimf\Util\Validator;
 use React\Http\Response as ReactiveResponse;
 use React\Http\Request as ReactiveRequest;
 
-final class FindExistingArticle
+final class FindExistingArticle implements Invokable
 {
     /**
      * @var EntityManager
      */
-    protected $em;
+    protected $entityManager;
 
     /**
      * @var ReactiveRequest
@@ -26,14 +27,14 @@ final class FindExistingArticle
      */
     protected $response;
 
-    public function __construct(EntityManager $em, ReactiveRequest $request, ReactiveResponse $response)
+    public function __construct(EntityManager $entityManager, ReactiveRequest $request, ReactiveResponse $response)
     {
-        $this->em = $em;
+        $this->entityManager = $entityManager;
         $this->request = $request;
         $this->response = $response;
     }
 
-    public function __invoke()
+    public function __invoke($requestBody = '')
     {
         $route = new Route('/articles/:id');
 
@@ -60,7 +61,7 @@ final class FindExistingArticle
             return $this->response->end();
         }
 
-        $article = $this->em->article->find($id);
+        $article = $this->entityManager->article->find($id);
 
         if (!$article) {
             //not found

@@ -1,6 +1,7 @@
 <?php
 namespace Articles\Service;
 
+use Articles\Contract\Invokable;
 use Articles\Model\Article;
 use Pimf\EntityManager;
 use Pimf\Param;
@@ -9,12 +10,12 @@ use Pimf\Util\Validator;
 use React\Http\Response as ReactiveResponse;
 use React\Http\Request as ReactiveRequest;
 
-final class UpdateExistingArticle
+final class UpdateExistingArticle implements Invokable
 {
     /**
      * @var EntityManager
      */
-    protected $em;
+    protected $entityManager;
 
     /**
      * @var ReactiveRequest
@@ -26,14 +27,14 @@ final class UpdateExistingArticle
      */
     protected $response;
 
-    public function __construct(EntityManager $em, ReactiveRequest $request, ReactiveResponse $response)
+    public function __construct(EntityManager $entityManager, ReactiveRequest $request, ReactiveResponse $response)
     {
-        $this->em = $em;
+        $this->entityManager = $entityManager;
         $this->request = $request;
         $this->response = $response;
     }
 
-    public function __invoke()
+    public function __invoke($requestBody = '')
     {
         $this->request->on('data', function ($requestBody) {
 
@@ -68,8 +69,8 @@ final class UpdateExistingArticle
             }
 
             $article = new Article($title, $content);
-            $article = $this->em->article->reflect($article, (int)$id);
-            $updated = $this->em->article->update($article);
+            $article = $this->entityManager->article->reflect($article, (int)$id);
+            $updated = $this->entityManager->article->update($article);
 
             if ($updated === true) {
                 $this->response->writeHead(200);

@@ -1,9 +1,10 @@
 <?php
 namespace Articles\Service;
 
+use Articles\Contract\Invokable;
 use React\Http\Response as ReactiveResponse;
 
-class WriteAllowedRequestMethods
+class WriteAllowedRequestMethods implements Invokable
 {
     /**
      * @var ReactiveResponse
@@ -15,7 +16,7 @@ class WriteAllowedRequestMethods
         $this->response = $response;
     }
 
-    public function __invoke()
+    public function __invoke($requestBody = '')
     {
         $this->response->writeHead(405, [
             '405'                          => 'Method Not Allowed',

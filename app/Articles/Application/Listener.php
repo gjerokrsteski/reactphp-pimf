@@ -19,7 +19,7 @@ final class Listener
     /**
      * @var EntityManager
      */
-    protected $em;
+    protected $entityManager;
 
     /**
      * @var ReactiveRequest
@@ -31,9 +31,9 @@ final class Listener
      */
     protected $response;
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->em = $em;
+        $this->entityManager = $entityManager;
     }
 
     public function __invoke(ReactiveRequest $request, ReactiveResponse $response)
@@ -65,16 +65,16 @@ final class Listener
         switch ($this->request->getMethod()) {
 
             case 'GET':
-                return $routeTo(new FindExistingArticle($this->em, $this->request, $this->response));
+                return $routeTo(new FindExistingArticle($this->entityManager, $this->request, $this->response));
 
             case 'POST':
-                return $routeTo(new CreateNewArticle($this->em, $this->request, $this->response));
+                return $routeTo(new CreateNewArticle($this->entityManager, $this->request, $this->response));
 
             case 'PUT':
-                return $routeTo(new UpdateExistingArticle($this->em, $this->request, $this->response));
+                return $routeTo(new UpdateExistingArticle($this->entityManager, $this->request, $this->response));
 
             case 'DELETE':
-                return $routeTo(new DeleteExistingArticle($this->em, $this->request, $this->response));
+                return $routeTo(new DeleteExistingArticle($this->entityManager, $this->request, $this->response));
 
             case 'OPTIONS':
                 return $routeTo(new ListApiUsageOptions($this->response));

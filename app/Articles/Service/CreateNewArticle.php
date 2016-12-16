@@ -1,6 +1,7 @@
 <?php
 namespace Articles\Service;
 
+use Articles\Contract\Invokable;
 use Articles\Model\Article;
 use Pimf\EntityManager;
 use Pimf\Param;
@@ -10,12 +11,12 @@ use Pimf\Util\Validator;
 use React\Http\Response as ReactiveResponse;
 use React\Http\Request as ReactiveRequest;
 
-final class CreateNewArticle
+final class CreateNewArticle implements Invokable
 {
     /**
      * @var EntityManager
      */
-    protected $em;
+    protected $entityManager;
 
     /**
      * @var ReactiveRequest
@@ -27,9 +28,9 @@ final class CreateNewArticle
      */
     protected $response;
 
-    public function __construct(EntityManager $em, ReactiveRequest $request, ReactiveResponse $response)
+    public function __construct(EntityManager $entityManager, ReactiveRequest $request, ReactiveResponse $response)
     {
-        $this->em = $em;
+        $this->entityManager = $entityManager;
         $this->request = $request;
         $this->response = $response;
     }
@@ -67,7 +68,7 @@ final class CreateNewArticle
                 return $this->response->end();
             }
 
-            $newId = $this->em->article->insert(new Article($title, $content));
+            $newId = $this->entityManager->article->insert(new Article($title, $content));
 
             if ($newId > 0) {
                 $this->response->writeHead(201, ['Content-Type' => 'application/json; charset=utf-8']);

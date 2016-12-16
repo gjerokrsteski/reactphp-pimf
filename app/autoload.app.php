@@ -21,6 +21,7 @@ spl_autoload_register(
             'Articles\\Application\\Listener'               => '/Articles/Application/Listener.php',
             'Articles\\DataMapper\\Article'                 => '/Articles/DataMapper/Article.php',
             'Articles\\Model\\Article'                      => '/Articles/Model/Article.php',
+            'Articles\\Contract\\Invokable'                 => '/Articles/Contract/Invokable.php',
             'Articles\\Service\\FindExistingArticle'         => '/Articles/Service/FindExistingArticle.php',
             'Articles\\Service\\ListApiUsageOptions'        => '/Articles/Service/ListApiUsageOptions.php',
             'Articles\\Service\\CreateNewArticle'           => '/Articles/Service/CreateNewArticle.php',

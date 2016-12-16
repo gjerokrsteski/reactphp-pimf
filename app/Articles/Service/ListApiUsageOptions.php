@@ -1,10 +1,11 @@
 <?php
 namespace Articles\Service;
 
+use Articles\Contract\Invokable;
 use Pimf\Util\Json;
 use React\Http\Response as ReactiveResponse;
 
-final class ListApiUsageOptions
+final class ListApiUsageOptions implements Invokable
 {
     /**
      * @var ReactiveResponse
@@ -16,7 +17,7 @@ final class ListApiUsageOptions
         $this->response = $response;
     }
 
-    public function __invoke()
+    public function __invoke($requestBody = '')
     {
         $this->response->writeHead(200, ['Content-Type' => 'application/json; charset=utf-8']);
 

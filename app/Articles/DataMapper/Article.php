@@ -6,17 +6,17 @@ use Pimf\DataMapper\Base;
 class Article extends Base
 {
     /**
-     * @param $id
+     * @param $identifier
      *
      * @return null|\Articles\Model\Article
      */
-    public function find($id)
+    public function find($identifier)
     {
         $sth = $this->pdo->prepare(
             'SELECT * FROM blog WHERE id = :id'
         );
 
-        $sth->bindValue(':id', $id);
+        $sth->bindValue(':id', $identifier);
 
         $sth->setFetchMode(
             \PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE,
@@ -34,7 +34,7 @@ class Article extends Base
         }
 
         // set the protected id of user via reflection.
-        $article = $this->reflect($article, (int)$id);
+        $article = $this->reflect($article, (int)$identifier);
 
         return $article;
     }
@@ -105,17 +105,17 @@ class Article extends Base
     }
 
     /**
-     * @param int $id
+     * @param int $identifier
      *
      * @return bool
      */
-    public function delete($id)
+    public function delete($identifier)
     {
         $sth = $this->pdo->prepare(
             "DELETE FROM blog WHERE id = :id"
         );
 
-        $sth->bindValue(':id', $id, \PDO::PARAM_INT);
+        $sth->bindValue(':id', $identifier, \PDO::PARAM_INT);
         $sth->execute();
 
         if ($sth->rowCount() == 0) {
