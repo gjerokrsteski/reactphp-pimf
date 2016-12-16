@@ -4,7 +4,6 @@ This is an reactive RESTful API which uses ReactPHP and PIMF micro framework.
 [![Build Status](https://travis-ci.org/gjerokrsteski/reactphp-pimf.svg?branch=master)](https://travis-ci.org/gjerokrsteski/reactphp-pimf)
 [![Code Climate](https://codeclimate.com/github/gjerokrsteski/reactphp-pimf/badges/gpa.svg)](https://codeclimate.com/github/gjerokrsteski/reactphp-pimf)
 
-
 ReactPHP is one of the most promising libraries. It brings the powerful concept of event-driven, non-blocking I/O 
 (Hi NodeJS) to PHP. With this technology in mind we are able to write our own HTTP stack in PHP and have control back 
 over the memory without destroying it at the end of each request. 
@@ -95,7 +94,7 @@ Install a Composer to your project's root
     
 Execute tests
     
-    php vendor/codeception/codeception/codecept run
+    php vendor/codeception/codeception/codecept run --colors
     // or if want to see steps ...
     php vendor/codeception/codeception/codecept run --steps
     // or if want to see fancy HTML report page
