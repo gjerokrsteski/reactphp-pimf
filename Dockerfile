@@ -13,6 +13,7 @@ RUN apk add --update --no-cache curl bash && \
     apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/testing add \
     php7 \
     php7-pdo \
+    php7-dom \
     php7-pdo_sqlite \
     php7-curl \
     php7-json \
