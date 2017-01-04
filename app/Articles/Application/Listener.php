@@ -57,6 +57,18 @@ final class Listener
                 ]));
         }
 
+        //handle the request content type header
+        if (in_array($this->request->getMethod(), ['POST', 'PUT', 'PATCH'])
+            && $this->request->getHeaders() !== 'application/json'
+        ) {
+            if (in_array('Content-Type', $this->request->getHeaders())
+                && $this->request->getHeaders()['Content-Type'] !== 'application/json'
+            ) {
+                $this->response->writeHead(415);
+                return $this->response->end();
+            }
+        }
+
         $routeTo = function ($service) {
             return $service();
         };
