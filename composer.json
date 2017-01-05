@@ -1,4 +1,20 @@
 {
+  "name": "gjerokrsteski/reactphp-pimf",
+  "description": "reactive RESTful API which uses ReactPHP and PIMF PHP micro framework",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "keywords": ["php", "pimf", "react", "reactphp"],
+  "support": {
+    "email": "gjero@krsteski.de",
+    "source": "https://github.com/gjerokrsteski/reactphp-pimf"
+  },
+  "authors" : [
+    {
+      "name" : "Gjero Krsteski",
+      "email" : "gjero@krsteski.de",
+      "homepage" : "http://krsteski.de",
+    }
+  ],
   "require": {
     "react/react": "0.4.2",
     "gjerokrsteski/pimf": "1.10.0"
