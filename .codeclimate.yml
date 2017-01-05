@@ -1,9 +1,9 @@
 engines:
   duplication:
     enabled: true
-      config:
-        languages:
-          - php
+    config:
+      languages:
+        - php
   fixme:
     enabled: false
   phpmd:
