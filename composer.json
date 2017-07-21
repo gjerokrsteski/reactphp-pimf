@@ -17,6 +17,7 @@
   ],
   "require": {
     "react/react": "0.4.2",
-    "gjerokrsteski/pimf": "1.10.0"
+    "gjerokrsteski/pimf": "1.10.0",
+    "codeception/codeception": "^2.3"
   }
 }

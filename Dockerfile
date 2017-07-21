@@ -1,5 +1,5 @@
 ## Base image
-FROM alpine:edge
+FROM ubuntu:16.04
 
 ## Copy modified PHP files into container
 COPY . /php-react
@@ -8,40 +8,23 @@ COPY . /php-react
 WORKDIR /php-react
 
 # Add PHP 7
-RUN apk add --update --no-cache curl bash && \
-    apk upgrade -U && \
-    apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/testing add \
-    php7 \
-    php7-pdo \
-    php7-dom \
-    php7-pdo_sqlite \
-    php7-curl \
-    php7-json \
-    php7-fpm \
-    php7-phar \
-    php7-openssl \
-    php7-ctype \
-    php7-mbstring \
-    php7-phar \
-    php7-pcntl \
-    php7-intl \
-    php7-openssl
+RUN cat /etc/debian_version \
+     && apt-get update -y \
+     && apt-get install -y --no-install-recommends wget curl \
+     && apt-get update -y \
+     && apt-get install -y php7.0 php7.0-xml php7.0-curl php7.0-json php7.0-mbstring php7.0-zip php7.0-intl php7.0-dom php7.0-phar php7.0-pdo php7.0-sqlite3 \
+     && wget https://composer.github.io/installer.sig -O - -q | tr -d '\n' > installer.sig \
+     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+     && php -r "if (hash_file('SHA384', 'composer-setup.php') === file_get_contents('installer.sig')) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+     && php composer-setup.php \
+     && php -r "unlink('composer-setup.php'); unlink('installer.sig');" \
+     && php composer.phar update \
+     && php composer.phar require "codeception/codeception:*" \
+     && php composer.phar dump-autoload --optimize \
+     && php composer.phar install
 
 # Sweep unused data from the image
-RUN apk del tzdata && \
-    rm -rf /var/cache/apk/*
-
-# Small fixes du we use alpine:edge
-RUN ln -s /etc/php7 /etc/php && \
-    ln -s /usr/bin/php7 /usr/bin/php && \
-    ln -s /usr/sbin/php-fpm7 /usr/bin/php-fpm && \
-    ln -s /usr/lib/php7 /usr/lib/php
-
-## Install ReactPHP and PIMF micro frameworks
-RUN curl -s http://getcomposer.org/installer | php
-RUN php composer.phar update
-RUN php composer.phar install
-RUN php composer.phar dump-autoload --optimize
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ## Create SQLite table
 RUN chmod +x create-table.php
