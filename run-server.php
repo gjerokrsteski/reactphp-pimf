@@ -13,7 +13,7 @@ $socket = new React\Socket\Server($loop);
 $http = new React\Http\Server($socket);
 
 $http->on('request',
-    new Articles\Application\Listener(
+    new Articles\Application\Dispatcher(
         new Pimf\EntityManager(
             Pimf\Pdo\Factory::get(Pimf\Config::get(Pimf\Config::get('environment') . '.db')),
             Pimf\Config::get('app.name')

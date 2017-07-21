@@ -18,7 +18,7 @@ spl_autoload_register(
          * The mappings from class names to file paths.
          */
         static $mappings = [
-            'Articles\\Application\\Listener' => '/Articles/Application/Listener.php',
+            'Articles\\Application\\Dispatcher' => '/Articles/Application/Dispatcher.php',
             'Articles\\DataMapper\\Article' => '/Articles/DataMapper/Article.php',
             'Articles\\Model\\Article' => '/Articles/Model/Article.php',
             'Articles\\Service\\FindExistingArticle' => '/Articles/Service/FindExistingArticle.php',

@@ -14,7 +14,7 @@ use Articles\Service\DeleteExistingArticle;
 use Articles\Service\ListApiUsageOptions;
 use Articles\Service\UpdateExistingArticle;
 
-final class Listener
+final class Dispatcher
 {
     /**
      * @var EntityManager
