@@ -80,7 +80,6 @@ final class UpdateExistingArticle
             //not found
             $this->response->writeHead(404);
             return $this->response->end();
-
         });
     }
 }

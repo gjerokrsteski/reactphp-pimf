@@ -50,8 +50,8 @@ final class CreateNewArticle
             parse_str($requestBody, $requestData);
             $requestData = new Param($requestData);
 
-            $title = $requestData->get('title');
-            $content = $requestData->get('content');
+            $title = $requestData->get('title', false);
+            $content = $requestData->get('content', false);
 
             if (!$title || !$content) {
                 //bad request
