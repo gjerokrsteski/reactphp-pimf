@@ -1,18 +1,22 @@
 ## Base image
 FROM ubuntu:16.04
 
+# Fixes some weird terminal issues
+ENV TERM=linux
+ENV APP_ENV=prod
+
 ## Copy modified PHP files into container
 COPY . /php-react
 
 ## Set working directory
 WORKDIR /php-react
 
-# Add PHP 7
+# Add PHP 7.0
 RUN cat /etc/debian_version \
      && apt-get update -y \
      && apt-get install -y --no-install-recommends wget curl \
      && apt-get update -y \
-     && apt-get install -y php7.0 php7.0-xml php7.0-curl php7.0-json php7.0-mbstring php7.0-zip php7.0-intl php7.0-dom php7.0-phar php7.0-pdo php7.0-sqlite3 \
+     && apt-get install -y php7.0 php7.0-curl php7.0-json php7.0-mbstring php7.0-zip php7.0-intl php7.0-dom php7.0-phar php7.0-pdo php7.0-sqlite3 \
      && wget https://composer.github.io/installer.sig -O - -q | tr -d '\n' > installer.sig \
      && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
      && php -r "if (hash_file('SHA384', 'composer-setup.php') === file_get_contents('installer.sig')) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
