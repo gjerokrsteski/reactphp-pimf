@@ -59,7 +59,7 @@ DELETE    | 404 (Not Found) or 405 (Method NOt Allowed)                         
 
 ```
 
-## Benchmark Results
+## Benchmark Results, over 19500 requests completed per second
     
     [vagrant@gkrsteski php-reactor]$ loadtest http://10.0.49.227:5501/articles/10 -t 20 -c 20 --rps 1000
     [Wed Feb 10 2016 12:24:47 GMT+0100 (CET)] INFO Requests: 0, requests per second: 0, mean latency: 0 ms
