@@ -98,7 +98,7 @@ Install a Composer to your project's root
     // or ...
     composer require "codeception/codeception:*"
     
-## Execute tests
+Execute tests
     
     php vendor/codeception/codeception/codecept run --colors
     // or if want to see steps ...
