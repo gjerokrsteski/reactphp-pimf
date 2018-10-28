@@ -15,8 +15,8 @@ RUN apt-get update -y \
 RUN apt-get install -y php7.2 \
      && apt-get install -y php-pear php7.2-curl php7.2-dev php7.0-json php7.2-mbstring php7.2-zip php7.2-xml php7.2-pdo php7.2-sqlite3 php7.2-intl
 
-RUN curl -s https://getcomposer.org/installer | php \
-     && mv composer.phar /usr/local/bin/composer \
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
+     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
      && composer update \
      && composer dump-autoload --optimize \
      && composer install
@@ -33,3 +33,4 @@ VOLUME /php-react/app/Articles/_database
 RUN chmod +x run-server.php
 
 ENTRYPOINT php run-server.php
+
